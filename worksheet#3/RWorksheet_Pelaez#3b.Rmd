@@ -1,0 +1,127 @@
+---
+title: "Worksheet-3b in R"
+author: "Riza Angelique Pelaez"
+date: "2024-10-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#1. Data Frame 
+
+#a: Create a Data Frame
+df <- data.frame(
+  Respondent = 1:5,
+  Sex = c("Male", "Female", "Female", "Male", "Male"),
+  FathersOccupation = c("Farmer", "Driver", "Others", "Farmer", "Others"),
+  SiblingsAttending = c(4, 5, 6, 3, 5),
+  TypeOfHouse = c("Wood", "Concrete", "Semi-Concrete", "Wood", "Concrete")
+)
+(df)
+```
+
+```{r}
+#b: Structure and Summary of the Data
+str(df)
+summary(df)
+```
+
+```{r}
+#c: Checks if the mean number of siblings attending is 5
+meansiblings <- mean(df$SiblingsAttending)
+(meansiblings)
+
+meansiblings == 5  # Check if the mean is equal to 5
+```
+
+```{r}
+#d: Extract first two rows and all columns
+subsetdf <- df[1:2, ]
+(subsetdf)
+```
+
+```{r}
+#e: Extract 3rd and 5th rows with 2nd and 4th columns
+subsetdf <- df[c(3, 5), c(2, 4)]
+(subsetdf)
+```
+
+```{r}
+#f: Select the variable "Type_of_House" and store it in types_houses
+typeshouses <- df$TypeOfHouse
+(typeshouses)
+```
+
+```{r}
+#g: Select male respondents with father's occupation as "Farmer"
+malefarmers <- subset(df, Sex == "Male" & FathersOccupation == "Farmer")
+(malefarmers)
+```
+
+```{r}
+#h: Select female respondents with 5 or more siblings attending school
+femalesiblings <- subset(df, Sex == "Female" & SiblingsAttending >= 5)
+(femalesiblings)
+```
+
+```{r}
+#2:Empty Data Frame
+
+dfempty <- data.frame(
+  Ints = integer(),
+  Doubles = double(),
+  Characters = character(),
+  Logicals = logical(),
+  Factors = factor(),
+  stringsAsFactors = FALSE
+)
+
+("Structure of the empty dataframe:")
+str(dfempty)
+```
+
+```{r}
+#3. HouseholdData.csv
+
+#a: Save the Data Frame as a CSV File
+write.csv(df, "HouseholdData.csv", row.names = FALSE)
+```
+
+```{r}
+#b: Import the CSV File into the R Environment
+dfimported <- read.csv("HouseholdData.csv")
+(dfimported)
+```
+
+```{r}
+#c: Convert "Sex" into a factor and change it into integers (Male = 1, Female = 2)
+dfimported$Sex <- factor(dfimported$Sex, levels = c("Male", "Female"), labels = c(1, 2))
+(dfimported$Sex)
+```
+
+```{r}
+#d: Convert "Type_of_House" into a factor (Wood = 1, Concrete = 2, Semi-Concrete = 3)
+dfimported$TypeOfHouse <- factor(dfimported$TypeOfHouse, levels = c("Wood", "Concrete", "Semi-Concrete"), labels = c(1, 2, 3))
+(dfimported$TypeOfHouse)
+```
+
+```{r}
+#e: Factor father's occupation (Farmer = 1, Driver = 2, Others = 3)
+dfimported$FathersOccupation <- factor(dfimported$FathersOccupation, levels = c("Farmer", "Driver", "Others"), labels = c(1, 2, 3))
+(dfimported$FathersOccupation)
+```
+
+```{r}
+#f: Select female respondents whose father is a driver
+femaledriver <- subset(dfimported, Sex == 2 & FathersOccupation == 2)
+(femaledriver)
+```
+
+```{r}
+#g: Select respondents with 5 or more siblings attending school
+siblings5plus <- subset(dfimported, SiblingsAttending >= 5)
+(siblings5plus)
+```

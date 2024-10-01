@@ -1,0 +1,233 @@
+---
+title: "Worksheet-3a in R"
+author: "Riza Angelique Pelaez"
+date: "2024-10-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#Using Vectors
+
+#1.LETTERS
+
+#a. You need to produce a vector that contains the first 11 letters.
+first11 <- LETTERS[1:11]
+(first11)
+```
+
+```{r}
+#b. Produce a vector that contains the odd numbered letters.
+
+oddletters <- LETTERS[seq(1,26, by = 2)]
+
+(oddletters)
+```
+
+```{r}
+#c. Produce a vector that contains the vowels
+vowels <- LETTERS[c(1, 5, 9, 15, 21)]
+
+(vowels)
+```
+
+```{r}
+#d. Produce a vector that contains the last 5 lowercase letters.
+last5lower <- letters[22:26]
+
+(last5lower)
+```
+
+```{r}
+#e. Produce a vector that contains letters between 15 to 24 letters in lowercase.
+lower15_24 <- letters[15:24]
+
+(lower15_24)
+```
+
+```{r}
+#2. Vector of Temperature.
+
+#a. Character of cities
+city <- c("Tuguegarao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+
+(city)
+```
+
+```{r}
+#b. Vectors of Temperature 
+temp <- c(42, 39, 34, 34, 30, 27)
+
+(temp)
+```
+
+```{r}
+#c. Data frame to combine the city and the temp
+citytemp <- data.frame(City = city, Tempreture = temp)
+
+(citytemp)
+```
+
+```{r}
+
+#d. rename the columns using the names() function
+
+names(citytemp) <- c("City", "Tempreture")
+(citytemp)
+```
+
+```{r}
+#e. Print the structure by using str() function.
+str(citytemp) 
+#outputs the structure of citytemp
+```
+
+```{r}
+#f. The content of row 3 and row 4.
+
+(citytemp[3:4, ])
+```
+
+```{r}
+#g. Display the city with highest temperature and the city with the lowest temperature.
+(citytemp[which.max(citytemp$Tempreture), ])
+
+(citytemp[which.min(citytemp$Tempreture), ])
+```
+
+```{r}
+#Using Matrices
+
+# row = 2
+matrix(c(5,6,7,4,3,2,1,2,3,7,8,9),nrow = 2)
+
+## [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,] 5 7 3 1 3 8
+## [2,] 6 4 2 2 7 9
+# row = 3 and column = 2
+
+matrix(data = c(3,4,5,6,7,8),3,2)
+## [,1] [,2]
+## [1,] 3 6
+## [2,] 4 7
+## [3,] 5 8
+
+# creating a diagonal matrix where x value will always be 1
+diag(1,nrow = 6,ncol = 5)
+
+## [,1] [,2] [,3] [,4] [,5]
+## [1,] 1 0 0 0 0
+## [2,] 0 1 0 0 0
+## [3,] 0 0 1 0 0
+## [4,] 0 0 0 1 0
+## [5,] 0 0 0 0 1
+## [6,] 0 0 0 0 0
+
+diag(6)
+## [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,] 1 0 0 0 0 0
+## [2,] 0 1 0 0 0 0
+## [3,] 0 0 1 0 0 0
+## [4,] 0 0 0 1 0 0
+## [5,] 0 0 0 0 1 0
+## [6,] 0 0 0 0 0 1
+```
+
+```{r}
+
+# 3. Matrix with numbers from 1 to 8 and 11 to 14
+
+
+# a. Create the matrix
+mat <- matrix(c(1:8, 11:14), nrow = 3, ncol = 4)
+
+(mat)
+```
+
+```{r}
+# b. Multiply the matrix by 2
+matmult2 <- mat * 2
+
+(matmult2)
+```
+
+```{r}
+# c. Display the content of row 2
+(mat[2, ])
+```
+
+```{r}
+# d. Display columns 3 and 4 in row 1 and row 2
+(mat[1:2, 3:4])
+```
+
+```{r}
+# e. Display columns 2 and 3 of row 3
+(mat[3, 2:3])
+```
+
+```{r}
+# f. Display only column 4
+(mat[, 4])
+```
+
+```{r}
+# g. Name the rows and columns
+rownames(matmult2) <- c("isa", "dalawa", "tatlo")
+colnames(matmult2) <- c("uno", "dos", "tres", "quatro")
+(matmult2)
+```
+
+```{r}
+# h. Reshape the matrix with new dimensions (2 columns, 6 rows)
+dim(mat) <- c(6, 2)
+(mat)
+```
+
+```{r}
+#Using Array
+
+# creates a two-dimensional array containing numbers from 1 to 24 that have 3 rows and 4 columns
+arraydta <- array(c(1:24), c(3,4,2))
+arraydta
+```
+
+```{r}
+# checking for the dimensions
+# row, column, dimension
+dim(arraydta)
+```
+
+```{r}
+#checking for the number of elements
+length(arraydta)
+```
+
+```{r}
+vectorA <- c(1:24)
+# creating an array
+anArray <- array(vectorA, dim = c(3,4,2))
+anArray
+```
+
+```{r}
+#4. An array contains 1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1
+
+# a. Create an array with repeated values
+arr <- array(rep(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1), 2), dim = c(2, 4, 3))
+(arr)
+```
+
+```{r}
+# b. Check the dimensions of the array
+(dim(arr))
+```
+
+```{r}
+# c. Name the rows, columns, and dimensions
+dimnames(arr) <- list(letters[1:2], LETTERS[1:4], c("1st-Dimensional Array", "2nd-Dimensional Array", "3rd-Dimensional Array"))
+(arr)
+```
