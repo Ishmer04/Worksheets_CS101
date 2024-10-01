@@ -1,0 +1,216 @@
+---
+title: "Worksheet-1 in R"
+author: "Riza Angelique Pelaez"
+date: "2024-09-17"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# 1.Set up the vector named age 
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42, 53, 41, 51, 35, 24, 33, 41)
+
+# a. Find the number of data points in the 'age' vector
+num_data_points <- length(age)
+
+# Output the number of data points
+num_data_points
+```
+
+```{r}
+# 2.Set up the vector named age
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42, 53, 41, 51, 35, 24, 33, 41)
+
+# Find the reciprocal of the values in the 'age' vector
+reciprocal_age <- 1 / age
+
+# Output the reciprocal values
+reciprocal_age
+```
+
+```{r}
+# 3. original age vector 
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42, 53, 41, 51, 35, 24, 33, 41)
+
+# Assign also new_age <- c(age, 0, age).
+new_age <- c(age, 0, age)
+
+# What happen to the new_age? 
+new_age
+```
+
+```{r}
+# 4. Original age
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42, 53, 41, 51, 35, 24, 33, 41)
+
+# Sort the values in the age
+sorted_age <- sort(age)
+
+# Output the sorted age
+sorted_age
+```
+
+```{r}
+# 5. Original age 
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42, 53, 41, 51, 35, 24, 33, 41)
+
+# Find the minimum value in the age
+min_age <- min(age)
+
+# Find the maximum value in the age
+max_age <- max(age)
+
+# Output the minimum and maximum values
+min_age
+max_age
+```
+
+```{r}
+# 6. Named Data
+data <- c(2.4, 2.8, 2.1, 2.5, 2.4, 2.2, 2.5, 2.3, 2.5, 2.3, 2.4, 2.7)
+
+# a. Find the number of data points in the data
+num_data_points <- length(data)
+
+# Output the number of data 
+num_data_points
+```
+
+```{r}
+# 7. Named Data
+data <- c(2.4, 2.8, 2.1, 2.5, 2.4, 2.2, 2.5, 2.3, 2.5, 2.3, 2.4, 2.7)
+
+# Double value in data 
+doubled_data <- data * 2
+
+# New doubled_data
+doubled_data
+```
+
+```{r}
+# 8.1 Integers from 1 to 100.
+
+Sequesnce_1_to_100 <- seq(1, 100)
+
+Sequesnce_1_to_100
+```
+```{r}
+# 8.2 Numbers from 20 to 60
+
+sequennce_20_to_60 <- seq(20, 60)
+
+sequennce_20_to_60
+```
+```{r}
+# 8.3 Numbers from 20 to 60
+numbers_20_to_60 <- seq(20, 60)
+
+mean_20_to_60 <- mean(numbers_20_to_60)
+
+mean_20_to_60
+```
+
+```{r}
+# 8.4 Sum of numbers from 51 to 91
+numbers_51_to_91 <- seq(51, 91)
+
+sum_51_to_91 <- sum(numbers_51_to_91)
+
+sum_51_to_91
+```
+
+```{r}
+# 8.5 Integers from 1 to 1,000
+sequence_1_to_1000 <- seq(1, 1000)
+
+sequence_1_to_1000
+```
+
+```{r}
+# 9. Create a vector from 1 to 100
+vec <- seq(100)
+
+result <- Filter(function(i) { all(i %% c(3, 5, 7) != 0) }, vec)
+
+result
+
+```
+
+```{r}
+# 10. Generate a sequence from 1 to 100
+seq_1_to_100 <- 1:100
+
+# Reverse sequence
+seq_100_to_1 <- rev(seq_1_to_100)
+
+# result
+seq_100_to_1
+
+```
+
+```{r}
+# 11. Generate a vector of natural numbers below 25
+numbers <- 1:24
+
+# Find numbers that are multiples of 3 or 5
+multiples_of_3_or_5 <- numbers[numbers %% 3 == 0 | numbers %% 5 == 0]
+
+# Sum of multiples
+sum_multiples <- sum(multiples_of_3_or_5)
+
+# results
+multiples_of_3_or_5
+sum_multiples
+
+```
+
+```{r, error=TRUE}
+# 12
+x <- {0 + x + 5 +  }
+
+# The message indicates that R encountered an unexpected end of input because the expression is not complete. R is expecting more input to finish the statement.
+
+```
+
+```{r}
+# 13. Set up the vector
+score <- c(72, 86, 92, 63, 88, 89, 91, 92, 75, 75, 77)
+
+x2 <- score[2]
+x3 <- score[3]
+
+
+print (x2)
+print (x3)
+
+```
+
+```{r}
+# 14. 
+# Create the vector
+a <- c(1, 2, NA, 4, NA, 6, 7)
+
+# Print the vector with NA values displayed as -999
+print(a, na.print = "-999")
+
+#output 
+#  1   2 -999    4 -999    6    7 
+#Original Vector: a is c(1, 2, NA, 4, NA, 6, 7). Printing with na.print: NA values are displayed as -999 in the output. The actual vector a stays the same; only how it’s printed is affected.
+```
+
+```{r}
+# 15 
+
+#Prompt for name and age
+
+name = readline(prompt="Input your name: ")
+
+age = readline(prompt="Input your age: ")
+
+print(paste("My name is", name, "and I am", age, "years old."))
+
+```
+
